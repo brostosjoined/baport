@@ -458,6 +458,7 @@ def api6_to_api8(content :str, plugin_type :str) -> str:
 
 def api8_to_api9(content:str) -> str:
     content = content.replace("# ba_meta require api 8", "# ba_meta require api 9")
+    content = content.replace("# ba_meta export plugin", "# ba_meta export babase.Plugin")
     content = content.replace("bs.get_connection_to_host_info", "get_connection_to_host_info_2")
     # replace get_connection_to_host_info_2(args)["name"] with et_connection_to_host_info_2(args).name
     content = re.sub(r"bs\.get_connection_to_host_info_2\((.*?)\)\\[\"name\"]", r"bs.get_connection_to_host_info_2(\1).name", content)
